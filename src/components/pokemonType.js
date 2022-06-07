@@ -12,7 +12,7 @@ const PokemonType = () => {
         <>Loading...</>
       ) : data ? (
         <>
-          {data.name.all}
+          {data.name}
         </>
       ) : null}
 
