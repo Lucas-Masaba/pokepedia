@@ -10,7 +10,22 @@ const PokemonType = () => {
     data: pokemonTypeData,
     error: pokemonTypeError,
     isLoading: pokemonTypeLoading,
-  } = useGetPokemonByTypeQuery("ice");
+  } = useGetPokemonByTypeQuery("normal");
+
+  const searchPokemon = (e) => {
+    if (pokemonTypeData) {
+      pokemonTypeData.pokemon.filter((poke) => {
+        if (poke.pokemon.name === "") {
+          return poke.pokemon.name;
+        }else if (
+          poke.pokemon.name.toLowerCase().includes(e.target.value.toLowerCase())
+        ) {
+          return <div>Rasaghoul</div>;
+        }
+
+      });
+    }
+  };
 
   return (
     <div className="App">
@@ -18,6 +33,13 @@ const PokemonType = () => {
       {pokemonTypeLoading && <>Loading...</>}
       {pokemonTypeData && (
         <>
+          <input
+            onChange={searchPokemon}
+            className="search_bar"
+            type="search"
+            placeholder="Search..."
+          />
+
           {pokemonTypeData.pokemon.map((poke, index) => (
             <Link
               activeclassname="active link"
@@ -38,21 +60,23 @@ const PokemonType = () => {
 };
 
 export const Images = ({ pokeName }) => {
-  const { data } = useGetPokemonByNameQuery(pokeName);
+  const { data, isLoading, error } = useGetPokemonByNameQuery(pokeName);
   return (
     <div>
+      {error && <>Oops, something went wrong</>}
+      {isLoading && <>Loading...</>}
       {data && (
-        <>
-          <img
-            src={
-              data.sprites.versions["generation-v"]["black-white"]["animated"][
-                "front_shiny"
-              ] ? data.sprites.versions["generation-v"]["black-white"]["animated"][
-                "front_shiny"
-              ] : data.sprites.front_shiny
-            }
-          />
-        </>
+        <img
+          src={
+            data.sprites.versions["generation-v"]["black-white"]["animated"][
+              "front_shiny"
+            ]
+              ? data.sprites.versions["generation-v"]["black-white"][
+                  "animated"
+                ]["front_shiny"]
+              : data.sprites.front_shiny
+          }
+        />
       )}
     </div>
   );
