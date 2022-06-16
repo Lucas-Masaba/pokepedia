@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   useGetPokemonByTypeQuery,
@@ -8,21 +8,33 @@ import {
 const PokemonType = () => {
 
   const [searchTerm, setSearchTerm] = useState("")
+  const [type, setType] = useState("normal")
 
   const {
     data: pokemonTypeData,
     error: pokemonTypeError,
     isLoading: pokemonTypeLoading,
-  } = useGetPokemonByTypeQuery("normal");
+  } = useGetPokemonByTypeQuery(type);
 
+  const handleChange = (event) => {
+ 
+      setType(event.target.value);
 
+  };
 
   return (
     <div className="App">
+
       {pokemonTypeError && <>Oh no, there was an error</>}
       {pokemonTypeLoading && <>Loading...</>}
       {pokemonTypeData && (
         <>
+        <select value={type} onChange={handleChange}>
+          <option value="fire">Choose...</option>
+          <option value="fire">fire</option>
+          <option value="ice">ice</option>
+        </select>
+
           <input
             onChange={(e) => setSearchTerm(e.target.value)}
             className="search_bar"
