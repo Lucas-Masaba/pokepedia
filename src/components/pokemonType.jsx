@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   useGetPokemonByTypeQuery,
@@ -6,26 +6,16 @@ import {
 } from "../redux/pokemon/pokemon";
 
 const PokemonType = () => {
+
+  const [searchTerm, setSearchTerm] = useState("")
+
   const {
     data: pokemonTypeData,
     error: pokemonTypeError,
     isLoading: pokemonTypeLoading,
   } = useGetPokemonByTypeQuery("normal");
 
-  const searchPokemon = (e) => {
-    if (pokemonTypeData) {
-      pokemonTypeData.pokemon.filter((poke) => {
-        if (poke.pokemon.name === "") {
-          return poke.pokemon.name;
-        }else if (
-          poke.pokemon.name.toLowerCase().includes(e.target.value.toLowerCase())
-        ) {
-          return <div>Rasaghoul</div>;
-        }
 
-      });
-    }
-  };
 
   return (
     <div className="App">
@@ -34,13 +24,19 @@ const PokemonType = () => {
       {pokemonTypeData && (
         <>
           <input
-            onChange={searchPokemon}
+            onChange={(e) => setSearchTerm(e.target.value)}
             className="search_bar"
             type="search"
             placeholder="Search..."
           />
 
-          {pokemonTypeData.pokemon.map((poke, index) => (
+          {pokemonTypeData.pokemon.filter((poke) => {
+            if(searchTerm == "") {
+              return poke
+            } else if(poke.pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+              return poke
+            } 
+          }).map((poke, index) => (
             <Link
               activeclassname="active link"
               key={index}
