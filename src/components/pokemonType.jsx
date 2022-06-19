@@ -24,7 +24,7 @@ const PokemonType = () => {
       {pokemonTypeData && (
         <>
           <select value={type} onChange={handleChange}>
-            <option value="fire">Choose...</option>
+            <option value="fire">Normal</option>
             <option value="fire">fire</option>
             <option value="ice">ice</option>
           </select>
@@ -54,11 +54,10 @@ const PokemonType = () => {
                 key={index}
                 to={`/details/${poke.pokemon.name}`}
               >
-                <ul class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                  <li>
+                <ul className="flex justify-center p-12">
+                  <li className="px-[50%] py-[20%] shadow-xl rounded-xl hover:shadow-cyan-500">
                     <Images pokeName={poke.pokemon.name} />
-
-                    <h1>{poke.pokemon.name}</h1>
+                    <p>{poke.pokemon.name}</p>
                   </li>
                 </ul>
               </Link>
@@ -68,7 +67,5 @@ const PokemonType = () => {
     </div>
   );
 };
-
-
 
 export default PokemonType;

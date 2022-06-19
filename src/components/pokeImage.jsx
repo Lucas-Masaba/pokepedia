@@ -4,7 +4,7 @@ import { useGetPokemonByNameQuery } from "../redux/pokemon/pokemon";
 const Images = ({ pokeName }) => {
   const { data, isLoading, error } = useGetPokemonByNameQuery(pokeName);
   return (
-    <div>
+    <div className="border-black">
       {error && <>Oops, something went wrong</>}
       {isLoading && <>Loading...</>}
       {data && (
