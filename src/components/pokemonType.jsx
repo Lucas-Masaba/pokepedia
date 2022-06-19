@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {
-  useGetPokemonByTypeQuery,
-  useGetPokemonByNameQuery,
-} from "../redux/pokemon/pokemon";
+import { useGetPokemonByTypeQuery } from "../redux/pokemon/pokemon";
+import Images from "./pokeImage";
 
 const PokemonType = () => {
-
-  const [searchTerm, setSearchTerm] = useState("")
-  const [type, setType] = useState("normal")
+  const [searchTerm, setSearchTerm] = useState("");
+  const [type, setType] = useState("normal");
 
   const {
     data: pokemonTypeData,
@@ -17,23 +14,20 @@ const PokemonType = () => {
   } = useGetPokemonByTypeQuery(type);
 
   const handleChange = (event) => {
- 
-      setType(event.target.value);
-
+    setType(event.target.value);
   };
 
   return (
     <div className="App">
-
       {pokemonTypeError && <>Oh no, there was an error</>}
       {pokemonTypeLoading && <>Loading...</>}
       {pokemonTypeData && (
         <>
-        <select value={type} onChange={handleChange}>
-          <option value="fire">Choose...</option>
-          <option value="fire">fire</option>
-          <option value="ice">ice</option>
-        </select>
+          <select value={type} onChange={handleChange}>
+            <option value="fire">Choose...</option>
+            <option value="fire">fire</option>
+            <option value="ice">ice</option>
+          </select>
 
           <input
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -42,52 +36,39 @@ const PokemonType = () => {
             placeholder="Search..."
           />
 
-          {pokemonTypeData.pokemon.filter((poke) => {
-            if(searchTerm == "") {
-              return poke
-            } else if(poke.pokemon.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-              return poke
-            } 
-          }).map((poke, index) => (
-            <Link
-              activeclassname="active link"
-              key={index}
-              to={`/details/${poke.pokemon.name}`}
-            >
-              <div>
-                <Images pokeName={poke.pokemon.name} />
+          {pokemonTypeData.pokemon
+            .filter((poke) => {
+              if (searchTerm == "") {
+                return poke;
+              } else if (
+                poke.pokemon.name
+                  .toLowerCase()
+                  .includes(searchTerm.toLowerCase())
+              ) {
+                return poke;
+              }
+            })
+            .map((poke, index) => (
+              <Link
+                activeclassname="active link"
+                key={index}
+                to={`/details/${poke.pokemon.name}`}
+              >
+                <ul class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                  <li>
+                    <Images pokeName={poke.pokemon.name} />
 
-                <h1>{poke.pokemon.name}</h1>
-              </div>
-            </Link>
-          ))}
+                    <h1>{poke.pokemon.name}</h1>
+                  </li>
+                </ul>
+              </Link>
+            ))}
         </>
       )}
     </div>
   );
 };
 
-export const Images = ({ pokeName }) => {
-  const { data, isLoading, error } = useGetPokemonByNameQuery(pokeName);
-  return (
-    <div>
-      {error && <>Oops, something went wrong</>}
-      {isLoading && <>Loading...</>}
-      {data && (
-        <img
-          src={
-            data.sprites.versions["generation-v"]["black-white"]["animated"][
-              "front_shiny"
-            ]
-              ? data.sprites.versions["generation-v"]["black-white"][
-                  "animated"
-                ]["front_shiny"]
-              : data.sprites.front_shiny
-          }
-        />
-      )}
-    </div>
-  );
-};
+
 
 export default PokemonType;
