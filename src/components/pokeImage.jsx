@@ -4,7 +4,7 @@ import { useGetPokemonByNameQuery } from "../redux/pokemon/pokemon";
 const Images = ({ pokeName }) => {
   const { data, isLoading, error } = useGetPokemonByNameQuery(pokeName);
   return (
-    <div className="border-black">
+    <div>
       {error && <>Oops, something went wrong</>}
       {isLoading && <>Loading...</>}
       {data && (
@@ -18,6 +18,7 @@ const Images = ({ pokeName }) => {
                 ]["front_shiny"]
               : data.sprites.front_shiny
           }
+          alt={`Image of ${pokeName}`}
         />
       )}
     </div>

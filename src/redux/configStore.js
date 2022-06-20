@@ -1,5 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 // Or from '@reduxjs/toolkit/query/react'
+import logger from 'redux-logger'
+import thunk from 'redux-thunk';
+
 import { pokemonApi } from './pokemon/pokemon';
 
 export const store = configureStore({
@@ -9,7 +12,7 @@ export const store = configureStore({
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(pokemonApi.middleware),
+  middleware: [thunk, logger],
 });
 
 export default store;

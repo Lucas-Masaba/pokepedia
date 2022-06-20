@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useGetPokemonByTypeQuery } from "../redux/pokemon/pokemon";
 import Images from "./pokeImage";
@@ -36,32 +36,32 @@ const PokemonType = () => {
             placeholder="Search..."
           />
 
-          {pokemonTypeData.pokemon
-            .filter((poke) => {
-              if (searchTerm == "") {
-                return poke;
-              } else if (
-                poke.pokemon.name
-                  .toLowerCase()
-                  .includes(searchTerm.toLowerCase())
-              ) {
-                return poke;
-              }
-            })
-            .map((poke, index) => (
-              <Link
-                activeclassname="active link"
-                key={index}
-                to={`/details/${poke.pokemon.name}`}
-              >
-                <ul className="flex justify-center p-12">
+          <ul className="flex flex-col justify-center p-12">
+            {pokemonTypeData.pokemon
+              .filter((poke) => {
+                if (searchTerm == "") {
+                  return poke;
+                } else if (
+                  poke.pokemon.name
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase())
+                ) {
+                  return poke;
+                }
+              })
+              .map((poke, index) => (
+                <Link
+                  activeclassname="active link"
+                  key={index}
+                  to={`/details/${poke.pokemon.name}`}
+                >
                   <li className="px-[50%] py-[20%] shadow-xl rounded-xl hover:shadow-cyan-500">
                     <Images pokeName={poke.pokemon.name} />
                     <p>{poke.pokemon.name}</p>
                   </li>
-                </ul>
-              </Link>
-            ))}
+                </Link>
+              ))}
+          </ul>
         </>
       )}
     </div>
