@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
 // Or from '@reduxjs/toolkit/query/react'
-import logger from 'redux-logger'
+import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 import { pokemonApi } from './pokemon/pokemon';

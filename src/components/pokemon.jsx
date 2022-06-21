@@ -8,13 +8,12 @@ const Pokemon = () => {
   const { data, error, isLoading } = useGetPokemonByNameQuery(name);
 
   return (
-    <div className="App">
+    <div>
       {error && <>Oh no, there was an error</>}
       {isLoading && <>Loading...</>}
       {data && (
         <>
           <h3>{data.species.name}</h3>
-          {/* <img src={data.sprites.front_shiny} alt={data.species.name} /> */}
           <img
             src={
               data.sprites.versions["generation-v"]["black-white"]["animated"][

@@ -9,6 +9,8 @@ const Images = ({ pokeName }) => {
       {isLoading && <>Loading...</>}
       {data && (
         <img
+          width="80px"
+          className="border-2"
           src={
             data.sprites.versions["generation-v"]["black-white"]["animated"][
               "front_shiny"

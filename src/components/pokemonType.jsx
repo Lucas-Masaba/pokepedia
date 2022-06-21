@@ -18,13 +18,13 @@ const PokemonType = () => {
   };
 
   return (
-    <div className="App">
+    <div>
       {pokemonTypeError && <>Oh no, there was an error</>}
       {pokemonTypeLoading && <>Loading...</>}
       {pokemonTypeData && (
         <>
           <select value={type} onChange={handleChange}>
-            <option value="fire">Normal</option>
+            <option value="normal">normal</option>
             <option value="fire">fire</option>
             <option value="ice">ice</option>
           </select>
@@ -36,7 +36,10 @@ const PokemonType = () => {
             placeholder="Search..."
           />
 
-          <ul className="flex flex-col justify-center p-12">
+
+
+
+          <ul className="grid gap-4 p-10 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {pokemonTypeData.pokemon
               .filter((poke) => {
                 if (searchTerm == "") {
@@ -55,8 +58,9 @@ const PokemonType = () => {
                   key={index}
                   to={`/details/${poke.pokemon.name}`}
                 >
-                  <li className="px-[50%] py-[20%] shadow-xl rounded-xl hover:shadow-cyan-500">
+                  <li className="flex items-center justify-between flex-col shadow-xl border-2 h-[300px] w-[100%] p-10 m-30 rounded-xl hover:shadow-cyan-500">
                     <Images pokeName={poke.pokemon.name} />
+      
                     <p>{poke.pokemon.name}</p>
                   </li>
                 </Link>
