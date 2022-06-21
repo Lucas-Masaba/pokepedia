@@ -20,7 +20,12 @@ const PokemonType = () => {
   return (
     <div>
       {pokemonTypeError && <>Oh no, there was an error</>}
-      {pokemonTypeLoading && <>Loading...</>}
+      {pokemonTypeLoading && (
+        <div class=" flex justify-center items-center">
+          <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900">  </div>
+          
+        </div>
+      )}
       {pokemonTypeData && (
         <>
           <select value={type} onChange={handleChange}>
@@ -35,9 +40,6 @@ const PokemonType = () => {
             type="search"
             placeholder="Search..."
           />
-
-
-
 
           <ul className="grid gap-4 p-10 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {pokemonTypeData.pokemon
@@ -58,9 +60,9 @@ const PokemonType = () => {
                   key={index}
                   to={`/details/${poke.pokemon.name}`}
                 >
-                  <li className="flex items-center justify-between flex-col shadow-xl border-2 h-[300px] w-[100%] p-10 m-30 rounded-xl hover:shadow-cyan-500">
+                  <li className="flex items-center justify-between flex-col shadow-xl border-2 h-[300px] w-[100%] p-10 m-30 rounded-xl transition ease-in-out delay-150 hover:shadow-cyan-500 hover:-translate-y-1">
                     <Images pokeName={poke.pokemon.name} />
-      
+
                     <p>{poke.pokemon.name}</p>
                   </li>
                 </Link>
