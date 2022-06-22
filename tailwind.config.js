@@ -4,7 +4,11 @@ module.exports = {
   ],
 
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        Mochiy: ["Mochiy Pop One", "sans-serif"],
+       },
+    },
   },
   plugins: [],
 };
