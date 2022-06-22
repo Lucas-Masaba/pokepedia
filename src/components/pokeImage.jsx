@@ -14,6 +14,7 @@ const Images = ({ pokeName }) => {
       )}
       {data && (
         <img
+          className="hover:animate-bounce"
           width="80px"
           src={
             data.sprites.versions["generation-v"]["black-white"]["animated"][
