@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useGetPokemonByTypeQuery } from "../redux/pokemon/pokemon";
+import {
+  useGetPokemonByTypeQuery,
+  useGetAllTypesQuery,
+} from "../redux/pokemon/pokemon";
 import Images from "./pokeImage";
 
 const PokemonType = () => {
@@ -13,26 +16,33 @@ const PokemonType = () => {
     isLoading: pokemonTypeLoading,
   } = useGetPokemonByTypeQuery(type);
 
+  const {
+    data: allTypesData,
+  } = useGetAllTypesQuery();
+
   const handleChange = (event) => {
     setType(event.target.value);
   };
 
   return (
-    <div>
+    <div className=" bg-blue-800">
       {pokemonTypeError && <>Oh no, there was an error</>}
       {pokemonTypeLoading && (
         <div class=" flex justify-center items-center">
-          <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900">  </div>
-          
+          <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900">
+            {" "}
+          </div>
         </div>
       )}
       {pokemonTypeData && (
         <>
-          <select value={type} onChange={handleChange}>
-            <option value="normal">normal</option>
-            <option value="fire">fire</option>
-            <option value="ice">ice</option>
-          </select>
+          {allTypesData && (
+            <select value={type} onChange={handleChange}>
+              {allTypesData.results.map((typeName) => (
+                <option value={typeName.name}>{typeName.name}</option>
+              ))}
+            </select>
+          )}
 
           <input
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -60,10 +70,12 @@ const PokemonType = () => {
                   key={index}
                   to={`/details/${poke.pokemon.name}`}
                 >
-                  <li className="flex items-center justify-between flex-col shadow-xl border-2 h-[300px] w-[100%] p-10 m-30 rounded-xl transition ease-in-out delay-150 hover:shadow-cyan-500 hover:-translate-y-1">
+                  <li className="flex items-center justify-between flex-col shadow-xl border-2 h-[300px] w-[100%]  bg-yellow-500 p-10 m-30 rounded-xl transition ease-in-out delay-150 hover:shadow-cyan-500 hover:-translate-y-1">
                     <Images pokeName={poke.pokemon.name} />
 
-                    <p>{poke.pokemon.name}</p>
+                    <p className="text-white font-bold font-Mochiy text-xl">
+                      {poke.pokemon.name.toUpperCase()}
+                    </p>
                   </li>
                 </Link>
               ))}
