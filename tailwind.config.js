@@ -6,8 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Mochiy: ["Mochiy Pop One", "sans-serif"],
-       },
+        Mochiy: ['Mochiy Pop One', 'sans-serif'],
+      },
     },
   },
   plugins: [],

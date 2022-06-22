@@ -28,8 +28,8 @@ const PokemonType = () => {
     <div className=" bg-blue-800">
       {pokemonTypeError && <>Oh no, there was an error</>}
       {pokemonTypeLoading && (
-        <div class=" flex justify-center items-center">
-          <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900">
+        <div className=" flex justify-center items-center">
+          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900">
             {" "}
           </div>
         </div>
