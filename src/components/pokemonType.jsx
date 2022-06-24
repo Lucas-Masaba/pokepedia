@@ -5,6 +5,7 @@ import {
   useGetAllTypesQuery,
 } from "../redux/pokemon/pokemon";
 import Images from "./pokeImage";
+import Header from "./header";
 
 const PokemonType = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -24,18 +25,19 @@ const PokemonType = () => {
 
   return (
     <div>
+      <Header />
       {pokemonTypeError && <>Oh no, there was an error</>}
       {pokemonTypeLoading && (
         <div className="grid place-items-center h-screen">
           <div className="animate-pulse  rounded-full h-32 w-32 border-b-2 ">
-            <img src="/public/pokeball.png" alt="" />
+            <img src="/pokeball.png" alt="" />
           </div>
         </div>
       )}
       {pokemonTypeData && (
         <main>
           <div className="flex flex-col md:flex-row font-Poppins p-5">
-            <h3 className="text-gray-500">Select A Pokemon type</h3>
+            <h3 className="text-gray-500 text-center md:mr-1">Select A Pokemon type</h3>
             {allTypesData && (
               <select
                 value={type}
