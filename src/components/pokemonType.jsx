@@ -16,42 +16,48 @@ const PokemonType = () => {
     isLoading: pokemonTypeLoading,
   } = useGetPokemonByTypeQuery(type);
 
-  const {
-    data: allTypesData,
-  } = useGetAllTypesQuery();
+  const { data: allTypesData } = useGetAllTypesQuery();
 
   const handleChange = (event) => {
     setType(event.target.value);
   };
 
   return (
-    <div className=" bg-blue-800">
+    <div>
       {pokemonTypeError && <>Oh no, there was an error</>}
       {pokemonTypeLoading && (
-        <div className=" flex justify-center items-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900">
-            {" "}
+        <div className="grid place-items-center h-screen">
+          <div className="animate-pulse  rounded-full h-32 w-32 border-b-2 ">
+            <img src="/public/pokeball.png" alt="" />
           </div>
         </div>
       )}
       {pokemonTypeData && (
-        <>
-          {allTypesData && (
-            <select value={type} onChange={handleChange}>
-              {allTypesData.results.map((typeName) => (
-                <option value={typeName.name}>{typeName.name}</option>
-              ))}
-            </select>
-          )}
+        <main>
+          <div className="flex flex-col md:flex-row font-Poppins p-5">
+            <h3 className="text-gray-500">Select A Pokemon type</h3>
+            {allTypesData && (
+              <select
+                value={type}
+                onChange={handleChange}
+                className=" bg-gray-200 rounded-sm outline-none focus:ring-cyan-400"
+              >
+                {allTypesData.results.map((typeName) => (
+                  <option value={typeName.name}>{typeName.name}</option>
+                ))}
+              </select>
+            )}
 
-          <input
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="search_bar"
-            type="search"
-            placeholder="Search..."
-          />
-
-          <ul className="grid gap-4 p-10 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+            {/* <div className="flex justify-center mt-3 "> */}
+              <input
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="mt-3 md:ml-2 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                type="search"
+                placeholder="Search Pokemon..."
+              />
+            {/* </div> */}
+          </div>
+          <ul className=" bg-gray-200 grid gap-4 p-10 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
             {pokemonTypeData.pokemon
               .filter((poke) => {
                 if (searchTerm == "") {
@@ -80,7 +86,7 @@ const PokemonType = () => {
                 </Link>
               ))}
           </ul>
-        </>
+        </main>
       )}
     </div>
   );
