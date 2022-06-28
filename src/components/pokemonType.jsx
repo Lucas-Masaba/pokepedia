@@ -23,9 +23,25 @@ const PokemonType = () => {
     setType(event.target.value);
   };
 
+  const colorChange = (type) => {
+
+    switch(type) {
+      case 'fire':
+        const red = {
+          background: 'red'
+        }
+        return red
+      case 'water':
+        const blue = {
+          background: 'blue'
+        }
+        return blue
+        
+    }
+  }
+
   return (
     <div>
-      <Header />
       {pokemonTypeError && <>Oh no, there was an error</>}
       {pokemonTypeLoading && (
         <div className="grid place-items-center h-screen">
@@ -35,6 +51,8 @@ const PokemonType = () => {
         </div>
       )}
       {pokemonTypeData && (
+        <div>
+      <Header />
         <main>
           <div className="flex flex-col md:flex-row font-Poppins p-5">
             <h3 className="text-gray-500 text-center md:mr-1">Select A Pokemon type</h3>
@@ -78,7 +96,7 @@ const PokemonType = () => {
                   key={index}
                   to={`/details/${poke.pokemon.name}`}
                 >
-                  <li className="flex items-center justify-between flex-col shadow-xl border-2 h-[300px] w-[100%]  bg-yellow-500 p-10 m-30 rounded-xl transition ease-in-out delay-150 hover:shadow-cyan-500 hover:-translate-y-1">
+                  <li style={colorChange(type)} className={` flex items-center justify-between flex-col shadow-xl border-2 h-[300px] w-[100%] p-10 m-30 rounded-xl transition ease-in-out delay-150 hover:shadow-cyan-500 hover:-translate-y-1 ${colorChange(type)}`}>
                     <Images pokeName={poke.pokemon.name} />
 
                     <p className="text-white font-bold font-Mochiy text-xl">
@@ -89,6 +107,7 @@ const PokemonType = () => {
               ))}
           </ul>
         </main>
+        </div>
       )}
     </div>
   );
