@@ -35,6 +35,16 @@ const PokemonType = () => {
           background: "#2563eb",
         };
         return blue;
+      case "normal":
+        const yellow = {
+          background: "#facc15",
+        };
+        return yellow;
+      default:
+        const defaultColour = {
+          background: "facc15",
+        }
+        return defaultColour;
     }
   };
 
