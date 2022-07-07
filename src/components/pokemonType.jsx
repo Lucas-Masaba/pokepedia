@@ -43,7 +43,7 @@ const PokemonType = () => {
       default:
         const defaultColour = {
           background: "facc15",
-        }
+        };
         return defaultColour;
     }
   };
