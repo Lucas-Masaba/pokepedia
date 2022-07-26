@@ -2,6 +2,7 @@ const colorChange = (type) => {
   switch (type) {
     case "fire":
       const red = {
+        color: "#ffffff",
         background: "#b91c1c",
       };
       return red;
