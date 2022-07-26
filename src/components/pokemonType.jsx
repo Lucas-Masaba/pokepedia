@@ -6,8 +6,7 @@ import {
 } from "../redux/pokemon/pokemon";
 import Images from "./pokeImage";
 import Header from "./header";
-import colorChange from "../../public/helper_functions/color_changer";
-
+import colorChange from "../helper_functions/color_changer";
 const PokemonType = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [type, setType] = useState("normal");

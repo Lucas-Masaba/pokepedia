@@ -15,6 +15,9 @@ export const pokemonApi = createApi({
     getAllTypes: builder.query({
       query: () => 'type',
     }),
+    getPokemonDescription: builder.query({
+      query: (name) => `pokemon-species/${name}`,
+    }),
   }),
 });
 
@@ -24,4 +27,5 @@ export const {
   useGetPokemonByNameQuery,
   useGetPokemonByTypeQuery,
   useGetAllTypesQuery,
+  useGetPokemonDescriptionQuery,
 } = pokemonApi;
