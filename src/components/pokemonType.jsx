@@ -6,6 +6,7 @@ import {
 } from "../redux/pokemon/pokemon";
 import Images from "./pokeImage";
 import Header from "./header";
+import colorChange from "../../public/helper_functions/color_changer";
 
 const PokemonType = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -23,30 +24,6 @@ const PokemonType = () => {
     setType(event.target.value);
   };
 
-  const colorChange = (type) => {
-    switch (type) {
-      case "fire":
-        const red = {
-          background: "#b91c1c",
-        };
-        return red;
-      case "water":
-        const blue = {
-          background: "#2563eb",
-        };
-        return blue;
-      case "normal":
-        const yellow = {
-          background: "#facc15",
-        };
-        return yellow;
-      default:
-        const defaultColour = {
-          background: "facc15",
-        };
-        return defaultColour;
-    }
-  };
 
   return (
     <div>
@@ -114,7 +91,7 @@ const PokemonType = () => {
                     >
                       <Images pokeName={poke.pokemon.name} />
 
-                      <p className="text-white font-bold font-Mochiy text-xl">
+                      <p className=" font-bold font-Mochiy text-xl">
                         {poke.pokemon.name.toUpperCase()}
                       </p>
                     </li>
