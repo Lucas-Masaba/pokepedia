@@ -8,6 +8,7 @@ const colorChange = (type) => {
       return red;
     case "water":
       const blue = {
+        color: '#ffffff',
         background: "#2563eb",
       };
       return blue;

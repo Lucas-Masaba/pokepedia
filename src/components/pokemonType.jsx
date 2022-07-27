@@ -84,7 +84,7 @@ const PokemonType = () => {
                   >
                     <li
                       style={colorChange(type)}
-                      className={` flex items-center justify-between flex-col shadow-xl border-2 h-[300px] w-[100%] p-10 m-30 rounded-md transition ease-in-out delay-150 hover:shadow-cyan-500 hover:-translate-y-1 ${colorChange(
+                      className={` flex items-center justify-between flex-col shadow-xl border-2 h-[300px] w-[100%] p-10 m-30 rounded-md transition ease-in-out delay-150 hover:shadow-red-800 hover:-translate-y-1 ${colorChange(
                         type
                       )}`}
                     >
