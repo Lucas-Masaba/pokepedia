@@ -7,7 +7,7 @@ const Images = ({ pokeName }) => {
     <div className="flex items-center justify-center shadow-inner shadow-cyan-500 rounded-full h-[150px] w-[150px] bg-white">
       {error && <>Oops, something went wrong</>}
       {isLoading && (
-        <img className="animate-spin" src="/pokeball.png" alt="" />
+        <img className="animate-pulse" src="/pokeball.png" alt="" />
       )}
       {data && (
         <img
