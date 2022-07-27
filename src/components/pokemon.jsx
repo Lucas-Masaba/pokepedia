@@ -18,11 +18,11 @@ const Pokemon = () => {
       {data && (
         <div className="font-Poppins" style={colorChange(data.types[0].type.name)}>
           <section style={colorChange(data.types[0].type.name)}>
-            <Link activeclassname="active link" to={`/`}>
+            <Link className="text-[25px]" to={`/`}>
               <BackArrow />
             </Link>
             <div className="flex flex-col items-center">
-              <h3>{data.species.name.toUpperCase()}</h3>
+              <h3 className="font-bold font-Mochiy">{data.species.name.toUpperCase()}</h3>
               <img
                 className="w-[250px]"
                 src={data.sprites.other["official-artwork"]["front_default"]}
@@ -30,17 +30,18 @@ const Pokemon = () => {
               />
             </div>
           </section>
-          <section className="md:flex md:grid grid-cols-2 md:align-baseline md:justify-between rounded-t-[20px] bg-white text-black p-3 pt-6">
+          <section className="rounded-t-[20px] bg-white text-black p-3 pt-6">
             <div className="pl-2">
               { speciesData && (
 
-            <p className="pb-2">{speciesData.flavor_text_entries[0].flavor_text}</p>
+            <p className="pb-2 md:flex md:justify-center">{speciesData.flavor_text_entries[0].flavor_text}</p>
               ) }
             </div>
             <div className="pr-2">
-              <h1 className="text-[22px] text-orange-600 font-bold">Data</h1>
+              <h1 className="text-[22px] text-orange-600 font-bold md:flex md:justify-center">Data</h1>
               
-              <ul className="pt-1">
+              <ul className="pt-1 md:flex md:justify-center">
+                <div className="md:pr-2">
                 <li>
                   <span className="font-bold">Abilities: </span>
                   {data.abilities.map((ability, index) => (
@@ -69,6 +70,8 @@ const Pokemon = () => {
                   <span className="font-bold">Special Defense: </span>
                   {data.stats[4].base_stat}
                 </li>
+                </div>
+                <div className="md:pl-2">
                 <li>
                   <span className="font-bold">Speed: </span>
                   {data.stats[5].base_stat}
@@ -89,6 +92,7 @@ const Pokemon = () => {
                     </>
                   ))}
                 </li>
+                </div>
               </ul>
             </div>
           </section>
