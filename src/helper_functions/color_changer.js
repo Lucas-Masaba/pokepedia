@@ -30,6 +30,12 @@ const colorChange = (type) => {
         background: "#7c2d12",
       };
       return brown;
+      case "rock":
+        const black = {
+          color: "#ffffff",
+          background: "#18181b",
+        };
+        return black;
     case "water":
       const blue = {
         color: "#ffffff",
