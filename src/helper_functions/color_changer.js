@@ -24,6 +24,12 @@ const colorChange = (type) => {
         background: "#166534",
       };
       return poisonGreen;
+    case "ground":
+      const brown = {
+        color: "#ffffff",
+        background: "#7c2d12",
+      };
+      return brown;
     case "water":
       const blue = {
         color: "#ffffff",
