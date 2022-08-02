@@ -12,6 +12,18 @@ const colorChange = (type) => {
         background: "#991b1b",
       };
       return fightingRed;
+    case "flying":
+      const flyingSlate = {
+        color: "#000000",
+        background: "#94a3b8",
+      };
+      return flyingSlate;
+    case "poison":
+      const poisonGreen = {
+        color: "#ffffff",
+        background: "#166534",
+      };
+      return poisonGreen;
     case "water":
       const blue = {
         color: "#ffffff",
