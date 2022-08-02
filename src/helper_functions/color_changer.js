@@ -8,23 +8,30 @@ const colorChange = (type) => {
       return red;
     case "water":
       const blue = {
-        color: '#ffffff',
+        color: "#ffffff",
         background: "#2563eb",
       };
       return blue;
     case "normal":
       const yellow = {
-        color: '#000000',
+        color: "#000000",
         background: "#facc15",
       };
       return yellow;
+    case "grass":
+      const green = {
+        color: "#ffffff",
+        background: "#65a30d",
+      };
+      return green;
+
     default:
       const defaultColour = {
-        color: '#000000',
+        color: "#000000",
         background: "facc15",
       };
       return defaultColour;
   }
 };
 
-export default colorChange
+export default colorChange;
