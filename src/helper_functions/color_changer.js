@@ -1,11 +1,17 @@
 const colorChange = (type) => {
   switch (type) {
     case "fire":
-      const red = {
+      const fireRed = {
         color: "#ffffff",
         background: "#b91c1c",
       };
-      return red;
+      return fireRed;
+    case "fighting":
+      const fightingRed = {
+        color: "#ffffff",
+        background: "#991b1b",
+      };
+      return fightingRed;
     case "water":
       const blue = {
         color: "#ffffff",
