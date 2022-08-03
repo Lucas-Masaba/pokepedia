@@ -57,7 +57,7 @@ const PokemonType = () => {
               {/* <div className="flex justify-center mt-3 "> */}
               <input
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="mt-3 md:ml-2 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+                className=" mt-3 md:mt-0 md:ml-2 placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
                 type="search"
                 placeholder="Search Pokemon..."
               />
