@@ -54,6 +54,12 @@ const colorChange = (type) => {
         background: "#65a30d",
       };
       return green;
+    case "electric":
+        const electricBlue = {
+          color: "#000000",
+          background: "#7DF9FF",
+        };
+        return electricBlue;
 
     default:
       const defaultColour = {
