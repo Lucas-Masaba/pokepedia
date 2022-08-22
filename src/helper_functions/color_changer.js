@@ -72,18 +72,36 @@ const colorChange = (type) => {
         background: "#DBF1FD",
       };
       return iceColor;
-      case "dragon":
-        const dragonColor = {
-          color: "#000000",
-          background: "#6C8EB4",
-        };
-        return dragonColor;
-        case "dark":
-          const darkColor = {
-            color: "#ffffff",
-            background: "#000000",
-          };
-          return darkColor;
+    case "dragon":
+      const dragonColor = {
+        color: "#000000",
+        background: "#6C8EB4",
+      };
+      return dragonColor;
+    case "dark":
+      const darkColor = {
+        color: "#ffffff",
+        background: "#000000",
+      };
+      return darkColor;
+    case "fairy":
+      const fairyColor = {
+        color: "#000000",
+        background: "#DED4D8",
+      };
+      return fairyColor;
+    case "unknown":
+      const unknownColor = {
+        color: "#000000",
+        background: "#ffffff",
+      };
+      return unknownColor;
+    case "shadow":
+      const shadowColor = {
+        color: "#ffffff",
+        background: "#8a795d",
+      };
+      return shadowColor;
     default:
       const defaultColour = {
         color: "#000000",
