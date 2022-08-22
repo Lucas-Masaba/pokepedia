@@ -1,113 +1,132 @@
 const colorChange = (type) => {
   switch (type) {
-    case "fire":
+    case 'fire': {
       const fireRed = {
-        color: "#ffffff",
-        background: "#b91c1c",
+        color: '#ffffff',
+        background: '#b91c1c',
       };
       return fireRed;
-    case "fighting":
+    }
+    case 'fighting': {
       const fightingRed = {
-        color: "#ffffff",
-        background: "#991b1b",
+        color: '#ffffff',
+        background: '#991b1b',
       };
       return fightingRed;
-    case "flying":
+    }
+    case 'flying': {
       const flyingSlate = {
-        color: "#000000",
-        background: "#94a3b8",
+        color: '#000000',
+        background: '#94a3b8',
       };
       return flyingSlate;
-    case "poison":
+    }
+    case 'poison': {
       const poisonGreen = {
-        color: "#ffffff",
-        background: "#166534",
+        color: '#ffffff',
+        background: '#166534',
       };
+
       return poisonGreen;
-    case "ground":
+    }
+    case 'ground': {
       const brown = {
-        color: "#ffffff",
-        background: "#7c2d12",
+        color: '#ffffff',
+        background: '#7c2d12',
       };
       return brown;
-    case "rock":
+    }
+    case 'rock': {
       const black = {
-        color: "#ffffff",
-        background: "#18181b",
+        color: '#ffffff',
+        background: '#18181b',
       };
       return black;
-    case "water":
+    }
+    case 'water': {
       const blue = {
-        color: "#ffffff",
-        background: "#2563eb",
+        color: '#ffffff',
+        background: '#2563eb',
       };
       return blue;
-    case "normal":
+    }
+    case 'normal': {
       const yellow = {
-        color: "#000000",
-        background: "#facc15",
+        color: '#000000',
+        background: '#facc15',
       };
       return yellow;
-    case "grass":
+    }
+    case 'grass': {
       const green = {
-        color: "#ffffff",
-        background: "#65a30d",
+        color: '#ffffff',
+        background: '#65a30d',
       };
       return green;
-    case "electric":
+    }
+    case 'electric': {
       const electricBlue = {
-        color: "#000000",
-        background: "#7DF9FF",
+        color: '#000000',
+        background: '#7DF9FF',
       };
       return electricBlue;
-    case "psychic":
+    }
+    case 'psychic': {
       const psychicColor = {
-        color: "#000000",
-        background: "#625981",
+        color: '#000000',
+        background: '#625981',
       };
       return psychicColor;
-    case "ice":
+    }
+    case 'ice': {
       const iceColor = {
-        color: "#000000",
-        background: "#DBF1FD",
+        color: '#000000',
+        background: '#DBF1FD',
       };
       return iceColor;
-    case "dragon":
+    }
+    case 'dragon': {
       const dragonColor = {
-        color: "#000000",
-        background: "#6C8EB4",
+        color: '#000000',
+        background: '#6C8EB4',
       };
       return dragonColor;
-    case "dark":
+    }
+    case 'dark': {
       const darkColor = {
-        color: "#ffffff",
-        background: "#000000",
+        color: '#ffffff',
+        background: '#000000',
       };
       return darkColor;
-    case "fairy":
+    }
+    case 'fairy': {
       const fairyColor = {
-        color: "#000000",
-        background: "#DED4D8",
+        color: '#000000',
+        background: '#DED4D8',
       };
       return fairyColor;
-    case "unknown":
+    }
+    case 'unknown': {
       const unknownColor = {
-        color: "#000000",
-        background: "#ffffff",
+        color: '#000000',
+        background: '#ffffff',
       };
       return unknownColor;
-    case "shadow":
+    }
+    case 'shadow': {
       const shadowColor = {
-        color: "#ffffff",
-        background: "#8a795d",
+        color: '#ffffff',
+        background: '#8a795d',
       };
       return shadowColor;
-    default:
+    }
+    default: {
       const defaultColour = {
-        color: "#000000",
-        background: "facc15",
+        color: '#000000',
+        background: 'facc15',
       };
       return defaultColour;
+    }
   }
 };
 

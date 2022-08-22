@@ -7,7 +7,7 @@ module.exports = {
     extend: {
       fontFamily: {
         Mochiy: ['Mochiy Pop One', 'sans-serif'],
-        Poppins: ['Poppins', 'sans-serif']
+        Poppins: ['Poppins', 'sans-serif'],
       },
     },
   },
