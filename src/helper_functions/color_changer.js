@@ -30,12 +30,12 @@ const colorChange = (type) => {
         background: "#7c2d12",
       };
       return brown;
-      case "rock":
-        const black = {
-          color: "#ffffff",
-          background: "#18181b",
-        };
-        return black;
+    case "rock":
+      const black = {
+        color: "#ffffff",
+        background: "#18181b",
+      };
+      return black;
     case "water":
       const blue = {
         color: "#ffffff",
@@ -55,12 +55,17 @@ const colorChange = (type) => {
       };
       return green;
     case "electric":
-        const electricBlue = {
-          color: "#000000",
-          background: "#7DF9FF",
-        };
-        return electricBlue;
-
+      const electricBlue = {
+        color: "#000000",
+        background: "#7DF9FF",
+      };
+      return electricBlue;
+    case "psychic":
+      const psychic = {
+        color: "#000000",
+        background: "#625981",
+      };
+      return psychic;
     default:
       const defaultColour = {
         color: "#000000",
