@@ -61,11 +61,29 @@ const colorChange = (type) => {
       };
       return electricBlue;
     case "psychic":
-      const psychic = {
+      const psychicColor = {
         color: "#000000",
         background: "#625981",
       };
-      return psychic;
+      return psychicColor;
+    case "ice":
+      const iceColor = {
+        color: "#000000",
+        background: "#DBF1FD",
+      };
+      return iceColor;
+      case "dragon":
+        const dragonColor = {
+          color: "#000000",
+          background: "#6C8EB4",
+        };
+        return dragonColor;
+        case "dark":
+          const darkColor = {
+            color: "#ffffff",
+            background: "#000000",
+          };
+          return darkColor;
     default:
       const defaultColour = {
         color: "#000000",
