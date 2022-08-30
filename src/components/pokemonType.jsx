@@ -23,7 +23,6 @@ const PokemonType = () => {
     setType(event.target.value);
   };
 
-
   return (
     <div>
       {pokemonTypeError && <>Oh no, there was an error</>}
@@ -83,6 +82,7 @@ const PokemonType = () => {
                     to={`/details/${poke.pokemon.name}`}
                   >
                     <li
+                      key={index}
                       style={colorChange(type)}
                       className={` flex items-center justify-between flex-col shadow-xl border-2 h-[300px] w-[100%] p-10 m-30 rounded-md transition ease-in-out delay-150 hover:shadow-red-800 hover:-translate-y-1 ${colorChange(
                         type
