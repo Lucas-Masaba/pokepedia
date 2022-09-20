@@ -78,17 +78,18 @@ const PokemonType = () => {
                 .map((poke, index) => (
                   <Link
                     activeclassname="active link"
-                    key={index}
+                    key={index.toString()}
                     to={`/details/${poke.pokemon.name}`}
                   >
+                    {console.log(poke.pokemon.id, "The index")}
                     <li
-                      key={index}
+                      // key={index}
                       style={colorChange(type)}
                       className={` flex items-center justify-between flex-col shadow-xl border-2 h-[300px] w-[100%] p-10 m-30 rounded-md transition ease-in-out delay-150 hover:shadow-red-800 hover:-translate-y-1 ${colorChange(
                         type
                       )}`}
                     >
-                      <Images pokeName={poke.pokemon.name} />
+                      <Images pokeName={poke.pokemon.name} imageKey={index} />
 
                       <p className=" font-bold font-Mochiy text-xl">
                         {poke.pokemon.name.toUpperCase()}
