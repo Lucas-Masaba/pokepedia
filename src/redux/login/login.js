@@ -7,10 +7,10 @@ export const login = createApi({
   }),
   endpoints: (builder) => ({
     loginUser: builder.mutation({
-      query: ({email, password}) => ({
+      query: (payload) => ({
         url: '',
         method: 'POST',
-        body: post,
+        payload,
       }),
     })
   })
