@@ -2,14 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const initialState = {
-  name: "",
-  username: "",
-  email: "",
-  password: "",
-}
-
 const SignUp = () => {
+  const initialState = {
+    name: "",
+    username: "",
+    email: "",
+    password: "",
+  }
   const [formValue, setFormValue] = useState(initialState)
   const [showPassword, setShowPassword] = useState(false);
 
