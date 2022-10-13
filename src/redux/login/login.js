@@ -10,7 +10,7 @@ export const login = createApi({
       query: (payload) => ({
         url: '',
         method: 'POST',
-        payload,
+        body: payload,
       }),
     })
   })

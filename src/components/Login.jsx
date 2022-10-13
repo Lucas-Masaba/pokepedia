@@ -21,6 +21,8 @@ const Login = () => {
 
   const { email, password } = formValue
 
+  console.log(email)
+
   const handleLogin = async () => {
     if (email && password) {
       await loginUser({email, password})
@@ -34,11 +36,12 @@ const Login = () => {
       console.log('success')
       navigate("/")
     }
-  })
+  }, [isSuccess])
 
   return (
     <div>
       <form
+       onSubmit={handleLogin}
       >
         <h2>Login</h2>
         <div className="w-full">
@@ -69,7 +72,6 @@ const Login = () => {
         <button
           type="submit"
           className="focus:shadow-outline appearance-none rounded border py-2 px-3 leading-tight bg-lime-400 text-slate-50 hover:bg-lime-500 focus:outline-none self-end"
-          onClick={handleLogin()}
         >
           Login
         </button>
