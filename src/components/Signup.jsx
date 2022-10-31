@@ -1,6 +1,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useSignUpUserMutation } from "../redux/signup/signup";
 
 const SignUp = () => {
   const initialState = {
@@ -12,14 +14,34 @@ const SignUp = () => {
   const [formValue, setFormValue] = useState(initialState)
   const [showPassword, setShowPassword] = useState(false);
 
+  const [signUpUser, {data, isSuccess, isLoading}] = useSignUpUserMutation()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value })
   }
 
+  const { name, username, email, password } = formValue
+
+  const handleSignUp = async() => {
+    if(name && username && email && password) {
+      await signUpUser({name, username, email, password})
+    } else {
+      console.log(false)
+    }
+  }
+
+  useEffect(() => {
+    if(isSuccess) {
+      navigate('/login')
+    }
+  }, [isSuccess])
+
   return (
     <div>
       <h1>Sign-Up page</h1>
-      <form action="/">
+      <form onSubmit={handleSignUp}>
         <div >
           <label htmlFor="name">Full Name</label>
           <input

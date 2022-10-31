@@ -16,7 +16,7 @@ const Login = () => {
 
   const [formValue, setFormValue] = useState(initialState)
 
-  const [loginUser, {data, isSuccess, isLoading}] = useLoginUserMutation()
+  const [loginUser, {data, isSuccess, isLoading, isError}] = useLoginUserMutation()
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
@@ -24,8 +24,6 @@ const Login = () => {
   }
 
   const { email, password } = formValue
-
-  console.log(email)
 
   const handleLogin = async () => {
     if (email && password) {

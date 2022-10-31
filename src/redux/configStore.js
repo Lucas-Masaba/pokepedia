@@ -6,6 +6,7 @@ import { pokemonApi } from './pokemon/pokemon';
 
 import authReducer from './login/authSlice';
 import { login } from './login/login'
+import { signUp } from './signup/signup'
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,8 @@ export const store = configureStore({
     auth: authReducer,
     [pokemonApi.reducerPath]: pokemonApi.reducer,
     [login.reducerPath]: login.reducer,
+    [signUp.reducerPath]: signUp.reducer,
+
   },
   // Adding the api middleware enables caching, invalidation, polling,
   // and other useful features of `rtk-query`.
