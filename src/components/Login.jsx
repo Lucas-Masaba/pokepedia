@@ -1,7 +1,10 @@
 import React from "react";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from "react";
+
+import { useDispatch } from "react-redux";
 import { useLoginUserMutation } from '../redux/login/login'
+import { setToken } from "../redux/login/authSlice";
 
 const Login = () => {
   const initialState = {
@@ -14,6 +17,7 @@ const Login = () => {
   const [formValue, setFormValue] = useState(initialState)
 
   const [loginUser, {data, isSuccess, isLoading}] = useLoginUserMutation()
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setFormValue({ ...formValue, [e.target.name]: e.target.value })
@@ -34,6 +38,7 @@ const Login = () => {
   useEffect(() => {
     if(isSuccess) {
       console.log('success')
+      dispatch(setToken({token: data.token}))
       navigate("/")
     }
   }, [isSuccess])
@@ -71,13 +76,13 @@ const Login = () => {
 
         <button
           type="submit"
-          className="focus:shadow-outline appearance-none rounded border py-2 px-3 leading-tight bg-lime-400 text-slate-50 hover:bg-lime-500 focus:outline-none self-end"
+          className="self-end px-3 py-2 leading-tight border rounded appearance-none focus:shadow-outline bg-lime-400 text-slate-50 hover:bg-lime-500 focus:outline-none"
         >
           Login
         </button>
-        <p className="text-center text-gray-800 pt-6">
+        <p className="pt-6 text-center text-gray-800">
           Don't have an account?&nbsp;
-          <NavLink to="/sign-up" className="focus:shadow-outline appearance-none rounded border py-2 px-3 leading-tight bg-blue-400 text-slate-50 hover:bg-blue-500 focus:outline-none self-end">
+          <NavLink to="/sign-up" className="self-end px-3 py-2 leading-tight bg-blue-400 border rounded appearance-none focus:shadow-outline text-slate-50 hover:bg-blue-500 focus:outline-none">
             Sign up 
           </NavLink>
         </p>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   useGetPokemonByTypeQuery,
   useGetAllTypesQuery,
@@ -7,7 +7,13 @@ import {
 import Images from "./pokeImage";
 import Header from "./header";
 import colorChange from "../helper_functions/color_changer";
+import { useDispatch, useSelector } from "react-redux";
+import { selectAuth, logout } from "../redux/login/authSlice";
 const PokemonType = () => {
+  const { token } = useSelector(selectAuth);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [searchTerm, setSearchTerm] = useState("");
   const [type, setType] = useState("normal");
 
@@ -22,6 +28,11 @@ const PokemonType = () => {
   const handleChange = (event) => {
     setType(event.target.value);
   };
+
+  const handleLogOut = () => {
+    dispatch(logout())
+    navigate("/sign-up")
+  }
 
   return (
     <div>
@@ -38,6 +49,8 @@ const PokemonType = () => {
           <Header />
           <main>
             <div className="flex flex-col md:flex-row font-Poppins p-5">
+              <p>Your token = {token}</p>
+              <button onClick={() => handleLogOut()}>Logout Bitch</button>
               <h3 className="text-gray-500 text-center md:mr-1">
                 Select A Pokemon type
               </h3>
